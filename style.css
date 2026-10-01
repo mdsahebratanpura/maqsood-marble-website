@@ -2836,3 +2836,146 @@ html {
         margin-top: 10px;
     }
 }
+
+/* ========================================
+   LOCATIONS
+======================================== */
+
+.location-list {
+    max-width: 1000px;
+    margin: 35px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.location-group {
+    text-align: center;
+    padding: 22px;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    background: #111;
+}
+
+.location-group h3 {
+    color: #c9a227;
+    font-size: 20px;
+    margin: 0 0 15px;
+}
+
+.location-cities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.location-cities span {
+    padding: 8px 15px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    color: #ddd;
+    background: #181818;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .location-list {
+        margin-top: 25px;
+        gap: 15px;
+    }
+
+    .location-group {
+        padding: 18px 12px;
+    }
+
+    .location-group h3 {
+        font-size: 18px;
+    }
+
+    .location-cities {
+        gap: 8px;
+    }
+
+    .location-cities span {
+        font-size: 13px;
+        padding: 7px 12px;
+    }
+
+}
+
+/* ========================================
+   CLIENT REVIEWS - MOBILE FIX
+======================================== */
+
+.approved-reviews {
+    width: 100%;
+    max-width: 700px;
+    margin: 35px auto 0;
+}
+
+.approved-reviews h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+#approvedReviewsList {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.approved-review-card {
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .approved-reviews {
+        width: 100%;
+        max-width: 100%;
+        margin: 25px auto 0;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .approved-reviews h3 {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    #approvedReviewsList {
+        width: 100%;
+    }
+
+    .approved-review-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .approved-review-stars {
+        font-size: 17px;
+    }
+
+    .approved-review-card h4 {
+        font-size: 16px;
+    }
+
+    .approved-review-card p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+}
