@@ -195,13 +195,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     galleryImages.forEach(function (image, index) {
 
-        image.addEventListener("click", function () {
+    image.style.cursor = "pointer";
 
-            openGallery(index);
+    image.addEventListener("click", function () {
 
-        });
+        currentImageIndex = index;
+
+        modal.style.display = "flex";
+
+        modalImage.src = image.src;
+
+        modalCaption.textContent = image.alt;
 
     });
+
+});
 
 
 // ========================================
@@ -249,6 +257,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    // ========================================
+// MOBILE IMAGE → FULLSCREEN
+// ========================================
+
+mobileGalleryImage.addEventListener("click", function () {
+
+    currentImageIndex = mobileCurrentImage;
+
+    modal.style.display = "flex";
+
+    modalImage.src = mobileGalleryImages[mobileCurrentImage];
+
+    modalCaption.textContent = "Marble Work";
+
+});
 
 // ========================================
 // CLOSE GALLERY
@@ -420,43 +444,53 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ========================================
+// MOBILE PHOTO → FULLSCREEN
+// ========================================
+
+mobileGalleryImage.addEventListener("click", function () {
+
+    modal.style.display = "flex";
+
+    modalImage.src = mobileGalleryImages[mobileCurrentImage];
+
+    modalCaption.textContent = "Marble Work";
+
+});
+
+// ========================================
 // WHATSAPP ENQUIRY FORM
 // ========================================
 
-const whatsappForm =
-    document.getElementById("whatsappForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (whatsappForm) {
+    const whatsappForm = document.getElementById("whatsappForm");
+
+    if (!whatsappForm) {
+        console.error("WhatsApp form not found!");
+        return;
+    }
 
     whatsappForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
-
-        const name =
-            document.getElementById("customerName").value;
-
-        const phone =
-            document.getElementById("customerPhone").value;
-
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const location = document.getElementById("customerLocation").value.trim();
+        const service = document.getElementById("customerService").value;
+        const message = document.getElementById("customerMessage").value.trim();
 
         const cleanPhone = phone.replace(/\D/g, "");
 
-if (cleanPhone.length !== 10) {
-    alert("Please enter a valid 10-digit mobile number.");
-    return;
-}
+        if (cleanPhone.length !== 10) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
 
-
-        const location =
-            document.getElementById("customerLocation").value;
-
-        const service =
-            document.getElementById("customerService").value;
-
-        const message =
-            document.getElementById("customerMessage").value;
-
+        if (!name || !location || !service || !message) {
+            alert("Please fill all the required fields.");
+            return;
+        }
 
         const whatsappMessage =
 `Hello Maqsood Alam Marble,
@@ -464,24 +498,22 @@ if (cleanPhone.length !== 10) {
 I would like to enquire about your marble work.
 
 Name: ${name}
-Mobile: ${phone}
+Mobile: ${cleanPhone}
 Project Location: ${location}
 Service: ${service}
 
 Project Details:
 ${message}`;
 
-
         const whatsappURL =
             "https://wa.me/919820931003?text=" +
             encodeURIComponent(whatsappMessage);
 
+        console.log("Opening WhatsApp:", whatsappURL);
 
-        window.open(
-            whatsappURL,
-            "_blank"
-        );
+        // Open WhatsApp
+        window.location.href = whatsappURL;
 
     });
 
-}
+});
