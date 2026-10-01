@@ -2171,7 +2171,7 @@ html {
             rgba(0,0,0,0.72),
             rgba(0,0,0,0.35)
         ),
-        url("images/work.jpg") center/cover no-repeat;
+        url("work.jpg") center/cover no-repeat;
 }
 
 .featured-work-content {
