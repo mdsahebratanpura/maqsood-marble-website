@@ -205,10 +205,8 @@ mobileGalleryImage.addEventListener("click", function () {
 // ========================================
 
     closeButton.addEventListener("click", function () {
-
-        modal.style.display = "none";
-
-    });
+    modal.style.display = "none";
+});
 
 
 // ========================================
