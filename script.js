@@ -292,25 +292,23 @@ mobileGalleryImage.addEventListener("click", function () {
 
 
     const mobileGalleryImages = [
-
-        "work1.jpg",
-        "work2.jpg",
-        "work3.jpg",
-        "work4.jpg",
-        "work5.jpg",
-        "work6.jpg",
-        "work7.jpg",
-        "work8.jpg",
-        "work9.jpg",
-        "work10.jpg",
-        "work11.jpg",
-        "work12.jpg",
-        "work13.jpg",
-        "work14.jpg",
-        "work15.jpg",
-        "work16.jpg"
-
-    ];
+    "images/work1.jpg",
+    "images/work2.jpg",
+    "images/work3.jpg",
+    "images/work4.jpg",
+    "images/work5.jpg",
+    "images/work6.jpg",
+    "images/work7.jpg",
+    "images/work8.jpg",
+    "images/work9.jpg",
+    "images/work10.jpg",
+    "images/work11.jpg",
+    "images/work12.jpg",
+    "images/work13.jpg",
+    "images/work14.jpg",
+    "images/work15.jpg",
+    "images/work16.jpg"
+];
 
 
     let mobileCurrentImage = 0;
@@ -375,15 +373,16 @@ mobileGalleryImage.addEventListener("click", function () {
 // MOBILE PHOTO → FULLSCREEN
 // ========================================
 
-mobileGalleryImage.addEventListener("click", function () {
+if (mobileGalleryImage && modal && modalImage) {
+    mobileGalleryImage.addEventListener("click", function () {
+        modal.style.display = "flex";
+        modalImage.src = mobileGalleryImage.src;
 
-    modal.style.display = "flex";
-
-    modalImage.src = mobileGalleryImages[mobileCurrentImage];
-
-    modalCaption.textContent = "Marble Work";
-
-});
+        if (modalCaption) {
+            modalCaption.textContent = "Marble Work";
+        }
+    });
+}
 
 // ========================================
 // WHATSAPP ENQUIRY FORM
