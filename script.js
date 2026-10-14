@@ -126,16 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
     image.style.cursor = "pointer";
 
     image.addEventListener("click", function () {
+    currentImageIndex = index;
+    modal.style.display = "flex";
+    modalImage.src = image.src;
 
-        currentImageIndex = index;
-
-        modal.style.display = "flex";
-
-        modalImage.src = image.src;
-
+    if (modalCaption) {
         modalCaption.textContent = image.alt;
-
-    });
+    }
+});
 
 });
 
